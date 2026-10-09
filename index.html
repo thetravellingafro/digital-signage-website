@@ -3,1172 +3,790 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Digital Signage Express helps restaurants, laundromats, gyms, and small businesses display menus, promotions, and advertisements on digital screens.">
-  <title>Digital Signage Express | Simple Screens. Smarter Business.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital Signage Express helps restaurants, laundromats, gyms, and small businesses turn TV screens into digital menus, promotions, and announcements.">
+  <title>Digital Signage Express | Put Your Screens to Work</title>
 
   <style>
     :root {
-      --navy: #10213f;
-      --blue: #2563eb;
-      --light-blue: #eaf2ff;
-      --text: #192943;
-      --muted: #65738a;
+      --navy: #10213d;
+      --blue: #2864e8;
+      --light: #f4f7fc;
+      --text: #192840;
+      --muted: #617087;
+      --line: #e1e7f0;
       --white: #ffffff;
-      --border: #e5eaf2;
-      --background: #f8faff;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
       color: var(--text);
       background: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .container {
-      width: min(1120px, 90%);
-      margin: 0 auto;
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
     }
 
-    .site-header {
+    header {
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+      z-index: 10;
     }
 
-    .nav {
+    nav {
       min-height: 76px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      align-items: center;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 1.15rem;
-      font-weight: 800;
       color: var(--navy);
-      letter-spacing: -0.5px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
     }
 
-    .logo span {
-      color: var(--blue);
-    }
+    .logo span { color: var(--blue); }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      font-size: 0.94rem;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
+      gap: 24px;
+      font-size: .9rem;
+      font-weight: 700;
     }
 
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
       padding: 13px 21px;
-      border-radius: 9px;
       background: var(--blue);
-      color: var(--white);
-      border: 1px solid var(--blue);
-      font-weight: 700;
+      color: white;
+      border-radius: 9px;
+      font-weight: 800;
+      border: 0;
       cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
+      text-align: center;
+      font: inherit;
     }
 
-    .button:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-    }
+    .button:hover { background: #174fc8; }
 
     .button-outline {
-      background: transparent;
+      background: white;
       color: var(--navy);
-      border-color: #cbd5e1;
-    }
-
-    .button-outline:hover {
-      background: var(--light-blue);
-      color: var(--navy);
+      border: 1px solid var(--line);
     }
 
     .hero {
-      padding: 88px 0 92px;
-      background:
-        radial-gradient(circle at 85% 15%, #dbeafe 0, transparent 32%),
-        linear-gradient(180deg, #ffffff, #f8faff);
-      overflow: hidden;
+      padding: 82px 0;
+      background: linear-gradient(130deg, #f2f6ff, #ffffff 70%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 64px;
+      gap: 55px;
     }
 
     .eyebrow {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 100px;
-      background: var(--light-blue);
       color: var(--blue);
-      font-size: 0.82rem;
-      font-weight: 800;
-      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      font-size: .77rem;
     }
 
-    h1,
-    h2,
-    h3 {
-      color: var(--navy);
-      line-height: 1.15;
-      letter-spacing: -1px;
-    }
+    h1, h2, h3 { line-height: 1.15; }
 
     h1 {
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      margin-bottom: 22px;
+      font-size: clamp(2.7rem, 5vw, 4.5rem);
+      letter-spacing: -3px;
+      color: var(--navy);
+      margin: 18px 0;
     }
 
-    h1 span {
-      color: var(--blue);
-    }
+    h1 span { color: var(--blue); }
 
-    .hero-copy {
-      max-width: 540px;
+    .hero p, .section-intro {
       color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 28px;
+      font-size: 1.08rem;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 26px;
+      flex-wrap: wrap;
+      margin: 25px 0;
     }
 
-    .hero-note {
+    .small-note {
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: .88rem;
     }
 
-    .hero-visual {
-      position: relative;
-      min-width: 0;
+    .screen-demo {
+      background: #dce5f2;
+      padding: 20px;
+      border-radius: 24px;
+      box-shadow: 0 20px 55px #10213d18;
     }
 
-    .screen-frame {
-      background: var(--navy);
-      border-radius: 22px;
-      padding: 12px;
-      box-shadow: 0 30px 70px rgba(16, 33, 63, 0.2);
-      transform: rotate(1deg);
-    }
-
-    .screen-content {
-      min-height: 330px;
-      border-radius: 13px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .screen {
+      background: #101d30;
+      border: 8px solid #172234;
+      border-radius: 10px;
+      padding: 15px;
       color: white;
-      background:
-        linear-gradient(135deg, rgba(16, 33, 63, 0.2), rgba(16, 33, 63, 0.8)),
-        linear-gradient(135deg, #60a5fa, #2563eb 55%, #172554);
+      min-height: 310px;
     }
 
     .screen-label {
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-transform: uppercase;
+      color: #f6ce70;
+      font-size: .8rem;
+      font-weight: 900;
       letter-spacing: 2px;
     }
 
-    .screen-content h2 {
-      color: white;
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin: 18px 0;
+    .screen h2 {
+      font-size: 2.2rem;
+      margin: 12px 0;
     }
 
-    .screen-content p {
-      color: #eff6ff;
-    }
-
-    .screen-price {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-top: 18px;
-    }
-
-    .screen-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .menu-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
-      font-size: 0.8rem;
-      color: #dbeafe;
     }
 
-    .floating-card {
-      position: absolute;
-      right: -18px;
-      bottom: 24px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 19px;
-      box-shadow: 0 14px 35px rgba(16, 33, 63, 0.12);
-      font-size: 0.9rem;
-      font-weight: 700;
+    .menu-item {
+      background: #263650;
+      padding: 13px;
+      border-radius: 8px;
     }
 
-    .floating-card span {
-      display: block;
-      color: var(--blue);
-      font-size: 0.8rem;
-      margin-top: 3px;
+    .food {
+      height: 54px;
+      border-radius: 6px;
+      margin-bottom: 9px;
+      background: linear-gradient(135deg, #e8b87c, #b74c30);
     }
 
-    section {
-      padding: 82px 0;
-    }
+    .menu-item strong { display: block; }
+    .menu-item small { color: #d2dcec; }
+
+    .section { padding: 78px 0; }
+
+    .soft { background: var(--light); }
 
     .section-heading {
-      max-width: 680px;
-      margin: 0 auto 42px;
+      max-width: 690px;
+      margin: 0 auto 38px;
       text-align: center;
     }
 
     .section-heading h2 {
       font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 14px;
+      letter-spacing: -1.5px;
+      color: var(--navy);
+      margin: 12px 0;
     }
 
-    .section-heading p {
-      color: var(--muted);
-      font-size: 1.03rem;
-    }
+    .section-heading p { color: var(--muted); }
 
-    .business-grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 20px;
     }
 
-    .business-card {
-      overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: 17px;
+    .card {
       background: white;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .business-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 35px rgba(16, 33, 63, 0.09);
-    }
-
-    .business-art {
-      min-height: 175px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
       padding: 24px;
+    }
+
+    .card-visual {
+      height: 145px;
+      border-radius: 12px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 15px;
+      text-align: center;
+      font-weight: 900;
     }
 
-    .restaurant-art {
-      background: linear-gradient(135deg, #ffedd5, #fdba74);
+    .restaurant-visual {
+      color: white;
+      background: linear-gradient(135deg, #4d251c, #d18449);
     }
 
-    .laundry-art {
-      background: linear-gradient(135deg, #dbeafe, #93c5fd);
+    .laundry-visual {
+      color: white;
+      background: linear-gradient(135deg, #164a70, #63b9d6);
     }
 
-    .gym-art {
-      background: linear-gradient(135deg, #dcfce7, #86efac);
+    .gym-visual {
+      color: white;
+      background: linear-gradient(135deg, #292348, #8769c8);
     }
 
-    .mini-screen {
-      width: 210px;
-      max-width: 100%;
-      padding: 18px;
-      border: 7px solid #172554;
-      border-radius: 9px;
-      background: white;
-      box-shadow: 0 12px 22px rgba(16, 33, 63, 0.17);
+    .card-visual strong {
+      font-size: 1.6rem;
+      line-height: 1.15;
     }
 
-    .mini-screen strong {
-      display: block;
+    .card h3 {
+      margin: 0 0 10px;
       color: var(--navy);
-      font-size: 0.95rem;
-      margin-bottom: 7px;
     }
 
-    .mini-screen span {
-      display: block;
+    .card p {
       color: var(--muted);
-      font-size: 0.75rem;
-    }
-
-    .mini-screen .mini-highlight {
-      color: var(--blue);
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin-top: 9px;
-    }
-
-    .business-copy {
-      padding: 24px;
-    }
-
-    .business-copy h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-    }
-
-    .business-copy p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .services-section {
-      background: var(--background);
+      margin-bottom: 0;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
 
-    .service-card {
-      background: white;
-      border: 1px solid var(--border);
+    .service {
+      display: flex;
+      gap: 15px;
+      border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 25px;
+      padding: 20px;
     }
 
     .service-icon {
-      width: 47px;
-      height: 47px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      background: var(--light-blue);
+      background: #eaf0ff;
       color: var(--blue);
-      font-size: 1.4rem;
-      margin-bottom: 17px;
+      border-radius: 10px;
+      min-width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.2rem;
     }
 
-    .service-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 9px;
-      letter-spacing: -0.3px;
-    }
+    .service h3 { margin: 0 0 6px; font-size: 1rem; }
 
-    .service-card p {
+    .service p {
+      margin: 0;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: .93rem;
     }
 
-    .steps-grid {
+    .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .step {
-      padding: 10px;
+      gap: 28px;
     }
 
     .step-number {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: var(--blue);
+      color: var(--blue);
+      font-size: 1.1rem;
+      font-weight: 900;
+      background: #eaf0ff;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+    }
+
+    .step h3 { color: var(--navy); }
+    .step p { color: var(--muted); }
+
+    .cta {
+      padding: 65px 0;
+      background: var(--navy);
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      margin-bottom: 20px;
     }
 
-    .step h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .cta-section {
-      padding: 0 0 82px;
-    }
-
-    .cta-panel {
-      padding: 50px;
-      border-radius: 22px;
-      color: white;
-      background: linear-gradient(120deg, #10213f, #1d4ed8);
+    .cta-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 30px;
     }
 
-    .cta-panel h2 {
-      color: white;
-      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
-      margin-bottom: 12px;
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+      margin: 0 0 12px;
     }
 
-    .cta-panel p {
-      max-width: 590px;
-      color: #dbeafe;
-    }
+    .cta p { color: #d5deee; margin-bottom: 0; }
 
-    .cta-panel .button {
-      flex-shrink: 0;
+    .cta .button {
       background: white;
       color: var(--navy);
-      border-color: white;
+      white-space: nowrap;
     }
 
-    .cta-panel .button:hover {
-      background: #eff6ff;
-    }
-
-    .quote-section {
-      background: var(--background);
-    }
-
-    .quote-grid {
+    .quote-layout {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 55px;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 45px;
       align-items: start;
     }
 
-    .quote-intro h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 18px;
+    .quote-layout h2 {
+      font-size: 2.6rem;
+      color: var(--navy);
+      letter-spacing: -1.5px;
     }
 
-    .quote-intro p {
-      color: var(--muted);
-      margin-bottom: 20px;
+    .quote-layout p { color: var(--muted); }
+
+    .contact-email {
+      overflow-wrap: anywhere;
     }
 
-    .quote-points {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      color: var(--text);
-    }
-
-    .quote-points li::before {
-      content: "✓";
-      color: var(--blue);
-      font-weight: 800;
-      margin-right: 10px;
-    }
-
-    .quote-form {
-      background: white;
-      border: 1px solid var(--border);
+    form {
+      border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 12px 35px rgba(16, 33, 63, 0.05);
+      padding: 25px;
+      box-shadow: 0 12px 35px #10213d0c;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 17px;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      min-width: 0;
-    }
-
-    .form-field.full {
-      grid-column: 1 / -1;
-    }
-
-    .form-field label {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      width: 100%;
-      padding: 12px 13px;
-      border: 1px solid #d6deea;
-      border-radius: 8px;
-      color: var(--text);
-      background: white;
-      outline: none;
-    }
-
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .form-field textarea {
-      resize: vertical;
-      min-height: 115px;
-    }
-
-    .quote-form .button {
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .form-note {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-top: 12px;
-    }
-
-    .site-footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      grid-template-columns: 1fr 1fr;
       gap: 15px;
     }
 
-    .footer-content p,
-    .footer-content a {
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    label {
+      font-weight: 700;
+      font-size: .87rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d7dfeb;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #b8ccff;
+      border-color: var(--blue);
+    }
+
+    .form-note {
+      font-size: .82rem;
       color: var(--muted);
-      font-size: 0.88rem;
+      margin-top: 12px;
     }
 
-    .footer-content a:hover {
-      color: var(--blue);
+    footer {
+      padding: 27px 0;
+      background: #09152a;
+      color: #d7dfed;
     }
 
-    @media (max-width: 850px) {
-      .hero-grid,
-      .quote-grid {
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer .logo { color: white; }
+    footer small { color: #b6c2d5; }
+
+    footer a:not(.logo) {
+      color: #ffffff;
+      text-decoration: underline;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 55px 0; }
+
+      .hero-grid, .quote-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .cards, .steps, .services-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding: 65px 0;
-      }
-
-      .hero-visual {
-        max-width: 600px;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      .business-grid,
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .steps-grid {
-        gap: 15px;
-      }
-
-      .cta-panel {
+      .cta-inner {
         align-items: flex-start;
         flex-direction: column;
       }
-    }
 
-    @media (max-width: 600px) {
-      .nav {
-        padding: 17px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 15px;
-      }
-
-      .nav-links {
-        width: 100%;
-        gap: 16px;
-        flex-wrap: wrap;
-        font-size: 0.85rem;
-      }
-
-      .nav-links .button {
-        padding: 9px 12px;
-      }
-
-      .business-grid,
-      .services-grid,
-      .steps-grid,
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-field.full {
-        grid-column: auto;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .screen-content {
-        min-height: 280px;
-        padding: 22px;
-      }
-
-      .floating-card {
-        right: -5px;
-        bottom: 12px;
-      }
-
-      .cta-section {
-        padding-bottom: 60px;
-      }
-
-      .cta-panel {
-        padding: 30px 24px;
-      }
-
-      .quote-form {
-        padding: 22px;
-      }
-
-      .footer-content {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+      .form-grid { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+      h1 { letter-spacing: -2px; }
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">DIGITAL SIGNAGE <span>EXPRESS</span></a>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#home" class="logo">Digital Signage <span>Express</span></a>
-
-      <nav class="nav-links" aria-label="Main navigation">
+      <div class="nav-links">
         <a href="#businesses">Who We Help</a>
         <a href="#services">Services</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#contact" class="button">Get a Quote</a>
-      </nav>
-    </div>
+        <a href="#how">How It Works</a>
+        <a class="button nav-cta" href="#quote">Get a Quote</a>
+      </div>
+    </nav>
   </header>
 
-  <main>
-
-    <section class="hero" id="home">
+  <main id="home">
+    <section class="hero">
       <div class="container hero-grid">
-
         <div>
-          <span class="eyebrow">Digital screens made simple</span>
+          <div class="eyebrow">Simple screen solutions for small businesses</div>
 
-          <h1>
-            Put your business on the screen.
-            <span>And keep it moving.</span>
-          </h1>
+          <h1>Your TV can do more than <span>show TV.</span></h1>
 
-          <p class="hero-copy">
-            From restaurant menus to laundromat promotions and gym announcements,
-            we help small businesses display the right message on the right screen.
-            We can help with the screen, the setup, and the content.
+          <p>
+            Turn screens into digital menus, special offers, service lists,
+            and announcements. Digital Signage Express helps you choose
+            the setup, create the content, and get your message on the screen.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="button">Get a Free Quote</a>
-            <a href="#services" class="button button-outline">Explore Services</a>
+            <a class="button" href="#quote">Request a Free Quote →</a>
+            <a class="button button-outline" href="#businesses">Explore Ideas</a>
           </div>
 
-          <p class="hero-note">
-            Screens, setup, graphics, and content management in one place.
-          </p>
-        </div>
-
-        <div class="hero-visual">
-          <div class="screen-frame">
-            <div class="screen-content">
-              <div>
-                <div class="screen-label">Today's Special</div>
-                <h2>GOOD FOOD.<br>GOOD MOOD.</h2>
-                <p>Fresh flavors. Made for you.</p>
-                <div class="screen-price">Lunch Specials from $9.99</div>
-              </div>
-
-              <div class="screen-footer">
-                <span>YOUR BUSINESS</span>
-                <span>YOUR MESSAGE</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="floating-card">
-            Your next promotion, on screen.
-            <span>Update your message as needed.</span>
+          <div class="small-note">
+            ✓ Screen options, content design, setup, and more.
           </div>
         </div>
 
-      </div>
-    </section>
+        <div class="screen-demo" aria-label="Example of a digital menu screen">
+          <div class="screen">
+            <div class="screen-label">YOUR BUSINESS ON DISPLAY</div>
+            <h2>Make it easy<br>to choose.</h2>
 
-    <section id="businesses">
-      <div class="container">
+            <div class="menu-demo">
+              <div class="menu-item">
+                <div class="food"></div>
+                <strong>Customer favorites</strong>
+                <small>Showcase your best sellers</small>
+              </div>
 
-        <div class="section-heading">
-          <span class="eyebrow">Made for small businesses</span>
-          <h2>Your business. Your screen. Your message.</h2>
-          <p>
-            Give customers something useful to look at while they wait,
-            shop, eat, or work out.
-          </p>
-        </div>
-
-        <div class="business-grid">
-
-          <article class="business-card">
-            <div class="business-art restaurant-art">
-              <div class="mini-screen">
-                <strong>OUR MENU</strong>
-                <span>Burgers • Bowls • Drinks</span>
-                <div class="mini-highlight">Combo Deal $12.99</div>
+              <div class="menu-item">
+                <div class="food"></div>
+                <strong>Special offers</strong>
+                <small>Put today's deals in view</small>
               </div>
             </div>
-            <div class="business-copy">
-              <h3>Restaurants & Cafés</h3>
-              <p>
-                Display menus, daily specials, combo deals, new items,
-                and promotions without having to reprint your menu.
-              </p>
-            </div>
-          </article>
-
-          <article class="business-card">
-            <div class="business-art laundry-art">
-              <div class="mini-screen">
-                <strong>WHILE YOU WAIT</strong>
-                <span>Wash • Dry • Fold</span>
-                <div class="mini-highlight">Drop-Off Specials</div>
-              </div>
-            </div>
-            <div class="business-copy">
-              <h3>Laundromats</h3>
-              <p>
-                Share service prices, wash-and-fold options, store policies,
-                announcements, and promotions with customers.
-              </p>
-            </div>
-          </article>
-
-          <article class="business-card">
-            <div class="business-art gym-art">
-              <div class="mini-screen">
-                <strong>GET MOVING</strong>
-                <span>Classes • Training • Community</span>
-                <div class="mini-highlight">Join This Week</div>
-              </div>
-            </div>
-            <div class="business-copy">
-              <h3>Gyms & Fitness Studios</h3>
-              <p>
-                Promote memberships, class schedules, personal training,
-                upcoming events, and member announcements.
-              </p>
-            </div>
-          </article>
-
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="services-section" id="services">
+    <section class="section" id="businesses">
       <div class="container">
-
         <div class="section-heading">
-          <span class="eyebrow">What we do</span>
-          <h2>We help you get the whole setup right.</h2>
+          <div class="eyebrow">Made for your business</div>
+          <h2>Show customers what they need to know.</h2>
           <p>
-            You don't have to figure out the technology yourself.
-            We can help you choose the equipment and get your content on screen.
+            A screen can help answer questions, highlight your services,
+            and put your latest offers where people can see them.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-visual restaurant-visual">
+              <strong>MENUS<br>+ SPECIALS</strong>
+            </div>
+            <h3>Restaurants &amp; Cafés</h3>
+            <p>
+              Display food menus, prices, combo deals, daily specials,
+              and seasonal promotions without constantly reprinting signs.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-visual laundry-visual">
+              <strong>WASH<br>DRY + FOLD</strong>
+            </div>
+            <h3>Laundromats</h3>
+            <p>
+              Show wash-and-fold services, pricing, pickup options,
+              business hours, and helpful customer reminders.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-visual gym-visual">
+              <strong>CLASSES<br>+ MEMBERSHIPS</strong>
+            </div>
+            <h3>Gyms &amp; Fitness Studios</h3>
+            <p>
+              Share class schedules, membership options, personal training,
+              upcoming events, and fitness challenges.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">From start to screen</div>
+          <h2>We help put all the pieces together.</h2>
+          <p>
+            Need one thing or the whole setup? Tell us what you're trying
+            to accomplish, and we'll help you explore your options.
           </p>
         </div>
 
         <div class="services-grid">
-
-          <article class="service-card">
+          <article class="service">
             <div class="service-icon">▣</div>
-            <h3>Screen Selection</h3>
-            <p>
-              Find a screen that fits your space, what you want to display,
-              and your business needs.
-            </p>
+            <div>
+              <h3>Screen Selection &amp; Setup</h3>
+              <p>Get help choosing a screen and planning a setup that fits your business.</p>
+            </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon">🖥</div>
-            <h3>Screen & Hardware Sales</h3>
-            <p>
-              Get help sourcing compatible screens and the equipment
-              needed to run your display.
-            </p>
+          <article class="service">
+            <div class="service-icon">＋</div>
+            <div>
+              <h3>Screens &amp; Display Hardware</h3>
+              <p>Explore display and hardware options for your space and needs.</p>
+            </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon">✦</div>
-            <h3>Menus & Graphics</h3>
-            <p>
-              Turn your menus, promotions, prices, and announcements
-              into clean, easy-to-read screen content.
-            </p>
+          <article class="service">
+            <div class="service-icon">✎</div>
+            <div>
+              <h3>Digital Menus &amp; Graphics</h3>
+              <p>Turn your prices, offers, and announcements into clear, attractive screen content.</p>
+            </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon">⚙</div>
-            <h3>Installation & Setup</h3>
-            <p>
-              Get help connecting your display and preparing it
-              to show your business content.
-            </p>
+          <article class="service">
+            <div class="service-icon">↗</div>
+            <div>
+              <h3>Installation</h3>
+              <p>Plan placement and get help bringing your screen setup together.</p>
+            </div>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon">↻</div>
-            <h3>Remote Content Updates</h3>
-            <p>
-              Where supported by your setup, update promotions and other
-              screen content without visiting the location.
-            </p>
+          <article class="service">
+            <div class="service-icon">⟳</div>
+            <div>
+              <h3>Remote Content Updates</h3>
+              <p>Explore ways to change what's displayed without manually replacing printed signs.</p>
+            </div>
           </article>
 
-          <article class="service-card">
+          <article class="service">
             <div class="service-icon">✓</div>
-            <h3>Complete Digital Signage Package</h3>
-            <p>
-              Bring the screen, hardware, setup, and content together
-              in one coordinated solution.
-            </p>
+            <div>
+              <h3>Complete Packages</h3>
+              <p>Bring screens, hardware, design, setup, and content support into one plan.</p>
+            </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <section id="how-it-works">
+    <section class="section" id="how">
       <div class="container">
-
         <div class="section-heading">
-          <span class="eyebrow">Simple process</span>
-          <h2>Getting started is easy.</h2>
+          <div class="eyebrow">Easy to get started</div>
+          <h2>Three steps. No tech jargon.</h2>
           <p>
-            Tell us what your business needs, and we'll help you figure out
-            the right next step.
+            You don't need to know the technical terms.
+            Just tell us what you want your customers to see.
           </p>
         </div>
 
-        <div class="steps-grid">
-
-          <article class="step">
-            <div class="step-number">1</div>
-            <h3>Tell Us About Your Business</h3>
-            <p>
-              Let us know what kind of business you run, where you want
-              your screen, and what you want customers to see.
-            </p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">2</div>
-            <h3>Get Your Setup Plan</h3>
-            <p>
-              We'll discuss screen options, hardware, graphics, installation,
-              and the services that fit your needs.
-            </p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">3</div>
-            <h3>Get Your Content on Screen</h3>
-            <p>
-              Move forward with your agreed setup and start displaying
-              menus, promotions, announcements, or other content.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-panel">
-          <div>
-            <h2>Ready to put your business on screen?</h2>
-            <p>
-              Whether you need one screen or a complete setup,
-              let's talk about what would work for your business.
-            </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Tell us what you need</h3>
+            <p>Let us know about your business, your space, and what you'd like to display.</p>
           </div>
 
-          <a href="#contact" class="button">Let's Get Started</a>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Find the right setup</h3>
+            <p>Explore screen, hardware, installation, and content options for your goals.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Put your screen to work</h3>
+            <p>Get your menus, promotions, schedules, or announcements ready to display.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="quote-section" id="contact">
-      <div class="container quote-grid">
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>Let's make your screen work for your business.</h2>
+          <p>Tell us what you'd like to display. We'll help you figure out the next step.</p>
+        </div>
 
-        <div class="quote-intro">
-          <span class="eyebrow">Let's talk</span>
-          <h2>Tell us what you have in mind.</h2>
+        <a class="button" href="#quote">Let's Talk →</a>
+      </div>
+    </section>
+
+    <section class="section" id="quote">
+      <div class="container quote-layout">
+        <div>
+          <div class="eyebrow">Start a conversation</div>
+          <h2>Tell us about your business.</h2>
 
           <p>
-            Share a few details about your business and what you're looking
-            for. We'll use that information to follow up about your project.
+            Already have a TV? Starting from scratch? Either way, share
+            what you're looking for. You don't need to know the technical details.
           </p>
 
-          <ul class="quote-points">
-            <li>Screen and equipment options</li>
-            <li>Menu and promotional graphics</li>
-            <li>Installation and setup</li>
-            <li>Content management options</li>
-          </ul>
+          <p>
+            <strong>What happens next?</strong><br>
+            Send your project details using the form, and we'll follow up
+            using the contact information you provide.
+          </p>
 
-          <p style="margin-top: 24px;">
-            Prefer email?
-            <a
-              href="mailto:digitalsignageexpress@gmail.com"
-              style="color: var(--blue); font-weight: 700;"
-            >digitalsignageexpress@gmail.com</a>
+          <p class="contact-email">
+            <strong>Prefer email?</strong><br>
+            <a href="mailto:digitalsignageexpress@gmail.com">
+              digitalsignageexpress@gmail.com
+            </a>
           </p>
         </div>
 
         <form
-          class="quote-form"
           id="quoteForm"
           action="https://formsubmit.co/digitalsignageexpress@gmail.com"
           method="POST"
         >
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Digital Signage Express Quote Request"
-          >
-
+          <input type="hidden" name="_subject" value="New Digital Signage Express Quote Request">
           <input type="hidden" name="_template" value="table">
-
-          <input type="hidden" name="_captcha" value="true">
-
-          <input
-            type="hidden"
-            name="_next"
-            value="https://thetravellingafro.github.io/digital-signage-website/"
-          >
-
-          <input
-            type="text"
-            name="_honey"
-            style="display: none;"
-            tabindex="-1"
-            autocomplete="off"
-          >
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form-grid">
-
-            <div class="form-field">
-              <label for="name">Your Name *</label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Jane Smith"
-                autocomplete="name"
-                required
-              >
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input id="name" type="text" name="name" autocomplete="name" required>
             </div>
 
-            <div class="form-field">
-              <label for="email">Email Address *</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="you@business.com"
-                autocomplete="email"
-                required
-              >
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" name="email" autocomplete="email" required>
             </div>
 
-            <div class="form-field">
-              <label for="business">Business Name *</label>
-              <input
-                id="business"
-                type="text"
-                name="business_name"
-                placeholder="Your business"
-                autocomplete="organization"
-                required
-              >
+            <div class="field full">
+              <label for="business">Business Name</label>
+              <input id="business" type="text" name="business_name" required>
             </div>
 
-            <div class="form-field">
-              <label for="phone">Phone Number</label>
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                placeholder="(555) 123-4567"
-                autocomplete="tel"
-              >
-            </div>
-
-            <div class="form-field">
-              <label for="businessType">Business Type *</label>
-              <select id="businessType" name="business_type" required>
-                <option value="">Choose one</option>
-                <option value="Restaurant or Cafe">Restaurant or Café</option>
-                <option value="Laundromat">Laundromat</option>
-                <option value="Gym or Fitness Studio">Gym or Fitness Studio</option>
-                <option value="Retail Store">Retail Store</option>
-                <option value="Salon or Barbershop">Salon or Barbershop</option>
-                <option value="Other">Other</option>
+            <div class="field full">
+              <label for="business_type">Type of Business</label>
+              <select id="business_type" name="business_type" required>
+                <option value="">Select your business</option>
+                <option>Restaurant</option>
+                <option>Laundromat</option>
+                <option>Gym or Fitness Studio</option>
+                <option>Other Small Business</option>
               </select>
             </div>
 
-            <div class="form-field">
-              <label for="screens">Number of Screens</label>
-              <select id="screens" name="number_of_screens">
-                <option value="">Not sure yet</option>
-                <option value="1">1 screen</option>
-                <option value="2-3">2–3 screens</option>
-                <option value="4-5">4–5 screens</option>
-                <option value="6 or more">6 or more screens</option>
-              </select>
-            </div>
-
-            <div class="form-field full">
-              <label for="services">What Do You Need Help With? *</label>
-              <select id="services" name="services_needed" required>
-                <option value="">Choose a service</option>
-                <option value="Screen selection and hardware">
-                  Screen selection and hardware
-                </option>
-                <option value="Menus and promotional graphics">
-                  Menus and promotional graphics
-                </option>
-                <option value="Installation and setup">
-                  Installation and setup
-                </option>
-                <option value="Remote content management">
-                  Remote content management
-                </option>
-                <option value="Complete digital signage package">
-                  Complete digital signage package
-                </option>
-                <option value="Not sure and need guidance">
-                  Not sure yet — I need guidance
-                </option>
-              </select>
-            </div>
-
-            <div class="form-field full">
-              <label for="details">Tell Us More About Your Project</label>
+            <div class="field full">
+              <label for="project">What do you need help with?</label>
               <textarea
-                id="details"
+                id="project"
                 name="project_details"
-                placeholder="Where would you like the screen installed? What would you like to display? Tell us anything that would help us understand your needs."
+                placeholder="Tell us about your screens, digital menus, or advertising needs."
+                required
               ></textarea>
             </div>
-
           </div>
 
-          <button type="submit" class="button">
-            Request My Quote
-          </button>
+          <button class="button" type="submit">Request a Quote →</button>
 
           <p class="form-note">
-            Submitting this form lets us contact you about your project.
+            Your inquiry will be sent through our form service.
+            Please don't include passwords or sensitive information.
           </p>
         </form>
-
       </div>
     </section>
-
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <a href="#home" class="logo">
-        Digital Signage <span>Express</span>
-      </a>
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#home">DIGITAL SIGNAGE <span>EXPRESS</span></a>
 
-      <p>
-        © <span id="year"></span> Digital Signage Express. All rights reserved.
-      </p>
+      <small>
+        Screen solutions for restaurants, laundromats, gyms, and small businesses.
+      </small>
 
-      <a href="mailto:digitalsignageexpress@gmail.com">
-        Contact Us
-      </a>
+      <small>
+        Contact:
+        <a href="mailto:digitalsignageexpress@gmail.com">
+          digitalsignageexpress@gmail.com
+        </a>
+      </small>
+
+      <small>© <span id="year"></span> Digital Signage Express</small>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
-
 </body>
 </html>
