@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Digital Signage Express helps restaurants, laundromats, gyms, and small businesses turn TV screens into digital menus, promotions, and announcements.">
   <title>Digital Signage Express | Put Your Screens to Work</title>
+
   <style>
     :root {
       --navy: #10213d;
@@ -79,6 +80,7 @@
       border: 0;
       cursor: pointer;
       text-align: center;
+      font: inherit;
     }
 
     .button:hover { background: #174fc8; }
@@ -256,7 +258,10 @@
       color: var(--navy);
     }
 
-    .card p { color: var(--muted); margin-bottom: 0; }
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
 
     .services-grid {
       display: grid;
@@ -285,7 +290,12 @@
     }
 
     .service h3 { margin: 0 0 6px; font-size: 1rem; }
-    .service p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+    .service p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+    }
 
     .steps {
       display: grid;
@@ -328,7 +338,12 @@
     }
 
     .cta p { color: #d5deee; margin-bottom: 0; }
-    .cta .button { background: white; color: var(--navy); white-space: nowrap; }
+
+    .cta .button {
+      background: white;
+      color: var(--navy);
+      white-space: nowrap;
+    }
 
     .quote-layout {
       display: grid;
@@ -344,6 +359,10 @@
     }
 
     .quote-layout p { color: var(--muted); }
+
+    .contact-email {
+      overflow-wrap: anywhere;
+    }
 
     form {
       border: 1px solid var(--line);
@@ -367,7 +386,10 @@
 
     .full { grid-column: 1 / -1; }
 
-    label { font-weight: 700; font-size: .87rem; }
+    label {
+      font-weight: 700;
+      font-size: .87rem;
+    }
 
     input, select, textarea {
       width: 100%;
@@ -376,9 +398,18 @@
       border-radius: 8px;
       font: inherit;
       background: white;
+      color: var(--text);
     }
 
-    textarea { min-height: 105px; resize: vertical; }
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #b8ccff;
+      border-color: var(--blue);
+    }
 
     .form-note {
       font-size: .82rem;
@@ -397,18 +428,36 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     footer .logo { color: white; }
     footer small { color: #b6c2d5; }
 
+    footer a:not(.logo) {
+      color: #ffffff;
+      text-decoration: underline;
+      overflow-wrap: anywhere;
+    }
+
     @media (max-width: 760px) {
       .nav-links a:not(.nav-cta) { display: none; }
       .hero { padding: 55px 0; }
-      .hero-grid, .quote-layout { grid-template-columns: 1fr; gap: 30px; }
-      .cards, .steps { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .cta-inner { align-items: flex-start; flex-direction: column; }
+
+      .hero-grid, .quote-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .cards, .steps, .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .form-grid { grid-template-columns: 1fr; }
       .full { grid-column: auto; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
@@ -416,10 +465,12 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav class="container">
       <a class="logo" href="#home">DIGITAL SIGNAGE <span>EXPRESS</span></a>
+
       <div class="nav-links">
         <a href="#businesses">Who We Help</a>
         <a href="#services">Services</a>
@@ -434,22 +485,42 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">Simple screen solutions for small businesses</div>
+
           <h1>Your TV can do more than <span>show TV.</span></h1>
-          <p>Turn screens into digital menus, special offers, service lists, and announcements. Digital Signage Express helps you choose the setup, create the content, and get your message on the screen.</p>
+
+          <p>
+            Turn screens into digital menus, special offers, service lists,
+            and announcements. Digital Signage Express helps you choose
+            the setup, create the content, and get your message on the screen.
+          </p>
+
           <div class="hero-actions">
             <a class="button" href="#quote">Request a Free Quote →</a>
             <a class="button button-outline" href="#businesses">Explore Ideas</a>
           </div>
-          <div class="small-note">✓ Screen options, content design, setup, and more.</div>
+
+          <div class="small-note">
+            ✓ Screen options, content design, setup, and more.
+          </div>
         </div>
 
         <div class="screen-demo" aria-label="Example of a digital menu screen">
           <div class="screen">
             <div class="screen-label">YOUR BUSINESS ON DISPLAY</div>
             <h2>Make it easy<br>to choose.</h2>
+
             <div class="menu-demo">
-              <div class="menu-item"><div class="food"></div><strong>Customer favorites</strong><small>Showcase your best sellers</small></div>
-              <div class="menu-item"><div class="food"></div><strong>Special offers</strong><small>Put today's deals in view</small></div>
+              <div class="menu-item">
+                <div class="food"></div>
+                <strong>Customer favorites</strong>
+                <small>Showcase your best sellers</small>
+              </div>
+
+              <div class="menu-item">
+                <div class="food"></div>
+                <strong>Special offers</strong>
+                <small>Put today's deals in view</small>
+              </div>
             </div>
           </div>
         </div>
@@ -461,23 +532,44 @@
         <div class="section-heading">
           <div class="eyebrow">Made for your business</div>
           <h2>Show customers what they need to know.</h2>
-          <p>A screen can help answer questions, highlight your services, and put your latest offers where people can see them.</p>
+          <p>
+            A screen can help answer questions, highlight your services,
+            and put your latest offers where people can see them.
+          </p>
         </div>
+
         <div class="cards">
           <article class="card">
-            <div class="card-visual restaurant-visual"><strong>MENUS<br>+ SPECIALS</strong></div>
-            <h3>Restaurants & Cafés</h3>
-            <p>Display food menus, prices, combo deals, daily specials, and seasonal promotions without constantly reprinting signs.</p>
+            <div class="card-visual restaurant-visual">
+              <strong>MENUS<br>+ SPECIALS</strong>
+            </div>
+            <h3>Restaurants &amp; Cafés</h3>
+            <p>
+              Display food menus, prices, combo deals, daily specials,
+              and seasonal promotions without constantly reprinting signs.
+            </p>
           </article>
+
           <article class="card">
-            <div class="card-visual laundry-visual"><strong>WASH<br>DRY + FOLD</strong></div>
+            <div class="card-visual laundry-visual">
+              <strong>WASH<br>DRY + FOLD</strong>
+            </div>
             <h3>Laundromats</h3>
-            <p>Show wash-and-fold services, pricing, pickup options, business hours, and helpful customer reminders.</p>
+            <p>
+              Show wash-and-fold services, pricing, pickup options,
+              business hours, and helpful customer reminders.
+            </p>
           </article>
+
           <article class="card">
-            <div class="card-visual gym-visual"><strong>CLASSES<br>+ MEMBERSHIPS</strong></div>
-            <h3>Gyms & Fitness Studios</h3>
-            <p>Share class schedules, membership options, personal training, upcoming events, and fitness challenges.</p>
+            <div class="card-visual gym-visual">
+              <strong>CLASSES<br>+ MEMBERSHIPS</strong>
+            </div>
+            <h3>Gyms &amp; Fitness Studios</h3>
+            <p>
+              Share class schedules, membership options, personal training,
+              upcoming events, and fitness challenges.
+            </p>
           </article>
         </div>
       </div>
@@ -488,15 +580,60 @@
         <div class="section-heading">
           <div class="eyebrow">From start to screen</div>
           <h2>We help put all the pieces together.</h2>
-          <p>Need one thing or the whole setup? Tell us what you're trying to accomplish, and we'll help you explore your options.</p>
+          <p>
+            Need one thing or the whole setup? Tell us what you're trying
+            to accomplish, and we'll help you explore your options.
+          </p>
         </div>
+
         <div class="services-grid">
-          <article class="service"><div class="service-icon">▣</div><div><h3>Screen Selection & Setup</h3><p>Get help choosing a screen and planning a setup that fits your business.</p></div></article>
-          <article class="service"><div class="service-icon">＋</div><div><h3>Screens & Display Hardware</h3><p>Explore display and hardware options for your space and needs.</p></div></article>
-          <article class="service"><div class="service-icon">✎</div><div><h3>Digital Menus & Graphics</h3><p>Turn your prices, offers, and announcements into clear, attractive screen content.</p></div></article>
-          <article class="service"><div class="service-icon">↗</div><div><h3>Installation</h3><p>Plan placement and get help bringing your screen setup together.</p></div></article>
-          <article class="service"><div class="service-icon">⟳</div><div><h3>Remote Content Updates</h3><p>Explore ways to change what's displayed without manually replacing printed signs.</p></div></article>
-          <article class="service"><div class="service-icon">✓</div><div><h3>Complete Packages</h3><p>Bring screens, hardware, design, setup, and content support into one plan.</p></div></article>
+          <article class="service">
+            <div class="service-icon">▣</div>
+            <div>
+              <h3>Screen Selection &amp; Setup</h3>
+              <p>Get help choosing a screen and planning a setup that fits your business.</p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">＋</div>
+            <div>
+              <h3>Screens &amp; Display Hardware</h3>
+              <p>Explore display and hardware options for your space and needs.</p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">✎</div>
+            <div>
+              <h3>Digital Menus &amp; Graphics</h3>
+              <p>Turn your prices, offers, and announcements into clear, attractive screen content.</p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">↗</div>
+            <div>
+              <h3>Installation</h3>
+              <p>Plan placement and get help bringing your screen setup together.</p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">⟳</div>
+            <div>
+              <h3>Remote Content Updates</h3>
+              <p>Explore ways to change what's displayed without manually replacing printed signs.</p>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">✓</div>
+            <div>
+              <h3>Complete Packages</h3>
+              <p>Bring screens, hardware, design, setup, and content support into one plan.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -506,12 +643,30 @@
         <div class="section-heading">
           <div class="eyebrow">Easy to get started</div>
           <h2>Three steps. No tech jargon.</h2>
-          <p>You don't need to know the technical terms. Just tell us what you want your customers to see.</p>
+          <p>
+            You don't need to know the technical terms.
+            Just tell us what you want your customers to see.
+          </p>
         </div>
+
         <div class="steps">
-          <div class="step"><div class="step-number">01</div><h3>Tell us what you need</h3><p>Let us know about your business, your space, and what you'd like to display.</p></div>
-          <div class="step"><div class="step-number">02</div><h3>Find the right setup</h3><p>Explore screen, hardware, installation, and content options for your goals.</p></div>
-          <div class="step"><div class="step-number">03</div><h3>Put your screen to work</h3><p>Get your menus, promotions, schedules, or announcements ready to display.</p></div>
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Tell us what you need</h3>
+            <p>Let us know about your business, your space, and what you'd like to display.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Find the right setup</h3>
+            <p>Explore screen, hardware, installation, and content options for your goals.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Put your screen to work</h3>
+            <p>Get your menus, promotions, schedules, or announcements ready to display.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -522,6 +677,7 @@
           <h2>Let's make your screen work for your business.</h2>
           <p>Tell us what you'd like to display. We'll help you figure out the next step.</p>
         </div>
+
         <a class="button" href="#quote">Let's Talk →</a>
       </div>
     </section>
@@ -531,41 +687,80 @@
         <div>
           <div class="eyebrow">Start a conversation</div>
           <h2>Tell us about your business.</h2>
-          <p>Already have a TV? Starting from scratch? Either way, share what you're looking for. You don't need to know the technical details.</p>
-          <p><strong>What happens next?</strong><br>Once your business contact method is connected, you'll be able to send your details for a follow-up about your project.</p>
+
+          <p>
+            Already have a TV? Starting from scratch? Either way, share
+            what you're looking for. You don't need to know the technical details.
+          </p>
+
+          <p>
+            <strong>What happens next?</strong><br>
+            Send your project details using the form, and we'll follow up
+            using the contact information you provide.
+          </p>
+
+          <p class="contact-email">
+            <strong>Prefer email?</strong><br>
+            <a href="mailto:digitalsignageexpress@gmail.com">
+              digitalsignageexpress@gmail.com
+            </a>
+          </p>
         </div>
 
-        <form action="https://formsubmit.co/digitalsignageexpress@gmail.com" method="POST">
+        <form
+          id="quoteForm"
+          action="https://formsubmit.co/digitalsignageexpress@gmail.com"
+          method="POST"
+        >
           <input type="hidden" name="_subject" value="New Digital Signage Express Quote Request">
           <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none">
-        
-          <label for="name">Your Name</label>
-          <input id="name" type="text" name="name" required>
-        
-          <label for="email">Email Address</label>
-          <input id="email" type="email" name="email" required>
-        
-          <label for="business">Business Name</label>
-          <input id="business" type="text" name="business_name" required>
-        
-          <label for="business_type">Type of Business</label>
-          <select id="business_type" name="business_type" required>
-            <option value="">Select your business</option>
-            <option>Restaurant</option>
-            <option>Laundromat</option>
-            <option>Gym or Fitness Studio</option>
-            <option>Other Small Business</option>
-          </select>
-        
-          <label for="project">What do you need help with?</label>
-          <textarea id="project" name="project_details" rows="4"
-            placeholder="Tell us about your screens, digital menus, or advertising needs."
-            required></textarea>
-        
-          <button type="submit">Request a Quote</button>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input id="name" type="text" name="name" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="field full">
+              <label for="business">Business Name</label>
+              <input id="business" type="text" name="business_name" required>
+            </div>
+
+            <div class="field full">
+              <label for="business_type">Type of Business</label>
+              <select id="business_type" name="business_type" required>
+                <option value="">Select your business</option>
+                <option>Restaurant</option>
+                <option>Laundromat</option>
+                <option>Gym or Fitness Studio</option>
+                <option>Other Small Business</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="project">What do you need help with?</label>
+              <textarea
+                id="project"
+                name="project_details"
+                placeholder="Tell us about your screens, digital menus, or advertising needs."
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <button class="button" type="submit">Request a Quote →</button>
+
+          <p class="form-note">
+            Your inquiry will be sent through our form service.
+            Please don't include passwords or sensitive information.
+          </p>
         </form>
-                
       </div>
     </section>
   </main>
@@ -573,19 +768,25 @@
   <footer>
     <div class="container footer-inner">
       <a class="logo" href="#home">DIGITAL SIGNAGE <span>EXPRESS</span></a>
-      <small>Screen solutions for restaurants, laundromats, gyms, and small businesses.</small>
+
+      <small>
+        Screen solutions for restaurants, laundromats, gyms, and small businesses.
+      </small>
+
+      <small>
+        Contact:
+        <a href="mailto:digitalsignageexpress@gmail.com">
+          digitalsignageexpress@gmail.com
+        </a>
+      </small>
+
       <small>© <span id="year"></span> Digital Signage Express</small>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    document.getElementById("quoteForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      document.getElementById("formNote").textContent =
-        "Thanks for testing the form! It is not connected to a receiving email or submission service yet, so your information has not been sent. Contact setup is the next step.";
-    });
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
 </body>
 </html>
