@@ -535,18 +535,37 @@
           <p><strong>What happens next?</strong><br>Once your business contact method is connected, you'll be able to send your details for a follow-up about your project.</p>
         </div>
 
-        <form id="quoteForm">
-          <div class="form-grid">
-            <div class="field"><label for="name">Your name *</label><input id="name" name="name" required autocomplete="name" placeholder="Your name"></div>
-            <div class="field"><label for="business">Business name *</label><input id="business" name="business" required placeholder="Your business"></div>
-            <div class="field"><label for="email">Your email *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
-            <div class="field"><label for="type">Business type *</label><select id="type" name="type" required><option value="">Choose one</option><option>Restaurant or café</option><option>Laundromat</option><option>Gym or fitness studio</option><option>Retail store</option><option>Other small business</option></select></div>
-            <div class="field full"><label for="need">What do you need help with? *</label><select id="need" name="need" required><option value="">Choose an option</option><option>Screen and hardware</option><option>Digital menu or advertising design</option><option>Installation</option><option>Remote content updates</option><option>Complete digital signage package</option><option>I'm not sure yet</option></select></div>
-            <div class="field full"><label for="details">Project details</label><textarea id="details" name="details" placeholder="How many screens? What would you like to display? Where is your business located?"></textarea></div>
-          </div>
-          <button class="button" type="submit" style="width:100%">Prepare Quote Request →</button>
-          <p class="form-note" id="formNote">Contact setup is not connected yet. This form will not send or store your information until a business email or form service is configured.</p>
+        <form action="https://formsubmit.co/digitalsignageexpress@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Digital Signage Express Quote Request">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none">
+        
+          <label for="name">Your Name</label>
+          <input id="name" type="text" name="name" required>
+        
+          <label for="email">Email Address</label>
+          <input id="email" type="email" name="email" required>
+        
+          <label for="business">Business Name</label>
+          <input id="business" type="text" name="business_name" required>
+        
+          <label for="business_type">Type of Business</label>
+          <select id="business_type" name="business_type" required>
+            <option value="">Select your business</option>
+            <option>Restaurant</option>
+            <option>Laundromat</option>
+            <option>Gym or Fitness Studio</option>
+            <option>Other Small Business</option>
+          </select>
+        
+          <label for="project">What do you need help with?</label>
+          <textarea id="project" name="project_details" rows="4"
+            placeholder="Tell us about your screens, digital menus, or advertising needs."
+            required></textarea>
+        
+          <button type="submit">Request a Quote</button>
         </form>
+                
       </div>
     </section>
   </main>
