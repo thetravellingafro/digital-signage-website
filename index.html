@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,11 +136,12 @@
       overflow: hidden;
     }
 
+    /* CHANGED: Hero text and image now stack vertically */
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr;
       align-items: center;
-      gap: 64px;
+      gap: 40px;
     }
 
     .eyebrow {
@@ -192,6 +194,7 @@
     .hero-visual {
       position: relative;
       min-width: 0;
+      width: 100%;
     }
 
     .hero-image {
@@ -780,7 +783,7 @@
           </p>
         </div>
 
-        <!-- HERO IMAGE -->
+        <!-- HERO IMAGE: NOW BELOW THE HEADER TEXT -->
         <div class="hero-visual">
           <img
             src="images/Digital%20Signage%20Express%20Header.png"
